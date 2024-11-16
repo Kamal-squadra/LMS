@@ -1,0 +1,65 @@
+{
+    "id": "safe-atmosphere-gas-freeing-quiz",
+    "title": [
+      {
+        "value": "Quiz: Safe Atmosphere and Gas Freeing Procedures"
+      }
+    ],
+    "type": "quiz",
+    "questions": [
+      {
+        "question": "What is the acceptable maximum concentration of Carbon Monoxide (CO) in an enclosed space for safe entry?",
+        "type": "mcq",
+        "options": [
+          {
+            "value": "A) 50 PPM"
+          },
+          {
+            "value": "B) 20 PPM"
+          },
+          {
+            "value": "C) 12 PPM"
+          },
+          {
+            "value": "D) 500 PPM"
+          }
+        ],
+        "answer": "C"
+      },
+      {
+        "question": "Carbon monoxide tends to accumulate at the top of an enclosed space because it is lighter than air.",
+        "type": "true_false",
+        "answer": "False"
+      },
+      {
+        "question": "During the incident, the oxygen concentration inside the 2 Starboard cargo oil tank was around ______%, which was significantly lower than the safe level of 20.9%.",
+        "type": "fill_in_the_blank",
+        "answer": "15"
+      },
+      {
+        "question": "What equipment did the Chief Officer use on the day of the incident to check the atmosphere in the cargo tanks?",
+        "type": "mcq",
+        "options": [
+          {
+            "value": "A) Eagle 2 Model with a long hose"
+          },
+          {
+            "value": "B) Eagle 2 Red with a short hose"
+          },
+          {
+            "value": "C) Personal gas meter only"
+          },
+          {
+            "value": "D) Digital oxygen analyzer"
+          }
+        ],
+        "answer": "B"
+      },
+      {
+        "question": "The gas freeing procedure was completed for 7 hours in the 2 Starboard cargo oil tank before the entry was made.",
+        "type": "true_false",
+        "answer": "False"
+      }
+    ]
+  }
+  

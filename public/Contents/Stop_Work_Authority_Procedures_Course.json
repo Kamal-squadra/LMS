@@ -1,0 +1,65 @@
+{
+    "id": "stop-work-authority-safety-procedures-quiz",
+    "title": [
+      {
+        "value": "Quiz: Stop Work Authority and Safety Procedures"
+      }
+    ],
+    "type": "quiz",
+    "questions": [
+      {
+        "question": "What is the first step in exercising Stop Work Authority (SWA)?",
+        "type": "mcq",
+        "options": [
+          {
+            "value": "A) Offer Safe Alternatives"
+          },
+          {
+            "value": "B) Persuade Compliance"
+          },
+          {
+            "value": "C) Communicate Concerns"
+          },
+          {
+            "value": "D) Identify Unsafe Conditions"
+          }
+        ],
+        "answer": "D"
+      },
+      {
+        "question": "The Stop Work Authority process allows any crew member, visitor, or contractor to halt unsafe activities without facing negative consequences.",
+        "type": "true_false",
+        "answer": "True"
+      },
+      {
+        "question": "In this incident, none of the deck crew exercised Stop Work Authority despite noticing that a __________ was not issued before entering the enclosed space.",
+        "type": "fill_in_the_blank",
+        "answer": "permit"
+      },
+      {
+        "question": "Which of the following actions demonstrates a failure in Daily Work Planning according to Chapter 5C of the Health and Safety Manual?",
+        "type": "mcq",
+        "options": [
+          {
+            "value": "A) Conducting a risk assessment before unplanned tasks"
+          },
+          {
+            "value": "B) Venting the tank within port limits without permission"
+          },
+          {
+            "value": "C) Arranging for mechanical ventilation during tank entry"
+          },
+          {
+            "value": "D) Holding a toolbox meeting before the task"
+          }
+        ],
+        "answer": "B"
+      },
+      {
+        "question": "The urgency to prepare the cargo tank led to a comprehensive risk assessment and adherence to the revised tank cleaning plan.",
+        "type": "true_false",
+        "answer": "False"
+      }
+    ]
+  }
+  

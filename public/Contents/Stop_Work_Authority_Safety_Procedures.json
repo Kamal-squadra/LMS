@@ -1,0 +1,64 @@
+{
+  "id": "cargo-tank-inspection-quiz",
+  "title": [
+    {
+      "value": "Quiz: Safety During Cargo Tank Inspection"
+    }
+  ],
+  "type": "quiz",
+  "questions": [
+    {
+      "question": "What type of cargo was the tanker preparing to load after completing the tank cleaning?",
+      "type": "mcq",
+      "options": [
+        {
+          "value": "A) Gasoline"
+        },
+        {
+          "value": "B) Crude Oil"
+        },
+        {
+          "value": "C) Ultra Low Sulfur Diesel (ULSD)"
+        },
+        {
+          "value": "D) Kerosene"
+        }
+      ],
+      "answer": "C"
+    },
+    {
+      "question": "The master and chief officer decided to re-enter the cargo tanks after the gas alarms were activated during their initial entry.",
+      "type": "true_false",
+      "answer": "True"
+    },
+    {
+      "question": "The chief officer fell approximately ______ meters to the tank bottom while attempting to exit the 2 Starboard cargo oil tank.",
+      "type": "fill_in_the_blank",
+      "answer": "18"
+    },
+    {
+      "question": "What equipment did the 3rd officer drop during the rescue attempt in the tank?",
+      "type": "mcq",
+      "options": [
+        {
+          "value": "A) Fire extinguisher"
+        },
+        {
+          "value": "B) EEBD (Emergency Escape Breathing Device)"
+        },
+        {
+          "value": "C) Walkie-talkie"
+        },
+        {
+          "value": "D) Personal Gas Meter"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "question": "The rescue team successfully extracted the chief officer on their first attempt without any issues.",
+      "type": "true_false",
+      "answer": "False"
+    }
+  ]
+}

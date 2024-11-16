@@ -1,0 +1,65 @@
+{
+    "id": "safety-protocols-enclosed-space-entry-quiz",
+    "title": [
+      {
+        "value": "Quiz: Safety Protocols for Enclosed Space Entry"
+      }
+    ],
+    "type": "quiz",
+    "questions": [
+      {
+        "question": "According to Section 2C.9.7 of the Entry into Enclosed Space procedures, what critical step was not completed during the gas freeing process?",
+        "type": "mcq",
+        "options": [
+          {
+            "value": "A) Continuous ventilation"
+          },
+          {
+            "value": "B) Use of appropriate gas detectors"
+          },
+          {
+            "value": "C) Turning blanks on the tank branch IG line"
+          },
+          {
+            "value": "D) Logging gas readings in the control room"
+          }
+        ],
+        "answer": "C"
+      },
+      {
+        "question": "The enclosed space entry permits for the 1 Port, 1 Starboard, and 2 Port cargo tanks were filled out before the tank entry was made, as per safety procedures.",
+        "type": "true_false",
+        "answer": "False"
+      },
+      {
+        "question": "During the tank entry, the required rescue equipment such as SCBA sets, EEBD, and resuscitator were not kept near the tank entrance, instead, they had to be retrieved from storage after the alarm sounded. This demonstrates a lack of __________ in emergency preparedness.",
+        "type": "fill_in_the_blank",
+        "answer": "safety preparedness"
+      },
+      {
+        "question": "What procedural violation occurred when the Master and Chief Officer entered the 1 Port and 2 Starboard cargo oil tanks together?",
+        "type": "mcq",
+        "options": [
+          {
+            "value": "A) They did not wear life vests"
+          },
+          {
+            "value": "B) They entered without logging their entry in the control room"
+          },
+          {
+            "value": "C) They entered without the consent of the Chief Engineer"
+          },
+          {
+            "value": "D) Senior officers from the same department are prohibited from entering together"
+          }
+        ],
+        "answer": "D"
+      },
+      {
+        "question": "During the incident, the Chief Officer was wearing full PPE, including a safety helmet, which would have minimized head injuries during the fall.",
+        "type": "true_false",
+        "answer": "False"
+      }
+    ]
+  }
+  
