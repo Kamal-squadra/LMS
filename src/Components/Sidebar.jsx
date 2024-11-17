@@ -54,7 +54,7 @@ const Sidebar = ({ setIsExpanded, isExpanded }) => {
     <div
       className={`transition-all  duration-800 ${
         isExpanded ? "w-[360px]" : "w-[60px]"
-      } h-screen pt-[80px] bg-white overflow-y-auto text-black shadow-2xl ${
+      } h-full pt-[80px] bg-white overflow-y-auto text-black shadow-2xl ${
         isExpanded ? "px-4" : "px-2"
       } flex flex-col`}
     >
