@@ -57,7 +57,7 @@ const VideoContentPage = () => {
           <p>{error}</p>
         </div>
       ) : videoContent ? (
-        <div className="h-[600px]">
+        <div className={`md:h-[600px] lg:h-[750px] h-[500px]`}>
           {/* Lesson Number */}
           <div className="text-l font-semibold mb-4">
             Video: {videoContent.title[0]?.value || "N/A"}

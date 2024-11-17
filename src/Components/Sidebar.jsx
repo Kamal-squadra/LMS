@@ -136,7 +136,7 @@ const Sidebar = ({ setIsExpanded, isExpanded }) => {
       <div className="mt-auto mb-4 flex justify-center">
         <button
           onClick={toggleSidebar}
-          className={`bg-blue-900 text-white w-[32px] h-[32px] ${isExpanded? "p-1 ":"p-1"} rounded-full  border-2 border-blue-900 shadow-lg flex items-center justify-center hover:bg-blue-800 transition duration-300`}
+          className={`bg-blue-900 text-white w-[32px] h-[32px] ${isExpanded? "p-1 ":"p-1 mb-6"} rounded-full  border-2 border-blue-900 shadow-lg flex items-center justify-center hover:bg-blue-800 transition duration-300`}
         >
           <img
             src={isExpanded ? cross : hamburger}
