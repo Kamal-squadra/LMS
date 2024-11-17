@@ -58,7 +58,7 @@ const Sidebar = ({ setIsExpanded, isExpanded }) => {
 
   return (
     <div
-      className={`transition-all duration-800 ${isExpanded ? "w-[360px]" : "w-[50px]"} pt-[80px] bg-white text-black shadow-2xl ${isExpanded ? "px-4" : "px-2"} flex flex-col h-full`}
+      className={`transition-all duration-800 ${isExpanded ? "w-[360px]" : "w-[60px]"} pt-[80px] bg-white text-black shadow-2xl ${isExpanded ? "px-4" : "px-2"} flex flex-col h-full`}
     >
       {/* <button
         onClick={toggleSidebar}
@@ -108,9 +108,9 @@ const Sidebar = ({ setIsExpanded, isExpanded }) => {
                   {module.trainingModuleContents.map((content, contentIndex) => (
                     <li
                       key={contentIndex}
-                      className={`flex items-center cursor-pointer w-[328px] ${contentIndex === module?.trainingModuleContents?.length - 1 ? "rounded-b-lg" : ""} bg-gray-100 transition duration-200 ${isActive(content.id, content.type) ? "bg-gray-200" : ""}`}
+                      className={`flex items-center cursor-pointer w-[328px]  ${isExpanded? "": "p-[5px]"} ${contentIndex === module?.trainingModuleContents?.length - 1 ? "rounded-b-lg" : ""} bg-gray-100 transition duration-200 ${isActive(content.id, content.type) ? "bg-gray-200" : ""}`}
                     >
-                      <Link to={`/${content.type}/${content.id}`} className="flex p-2 items-center w-full">
+                      <Link to={`/${content.type}/${content.id}`} className={`flex p-2 items-center w-full`}>
                         <span className="flex-shrink-0 mr-2">
                           {getContentIcon(content.type, isExpanded)} {/* Pass `isExpanded` to get different icon sizes */}
                         </span>
@@ -150,7 +150,7 @@ const Sidebar = ({ setIsExpanded, isExpanded }) => {
 };
 
 const getContentIcon = (type, isExpanded) => {
-  const iconSize = isExpanded ? "h-[32px] w-[32px]" : "h-[16px] w-[16px]"; // Conditionally set icon size
+  const iconSize = isExpanded ? "h-[32px] w-[32px]" : "h-[20px] w-[20px]"; // Conditionally set icon size
 
   switch (type) {
     case "video":

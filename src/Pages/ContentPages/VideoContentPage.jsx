@@ -47,7 +47,7 @@ const VideoContentPage = () => {
 
   
   return (
-    <div className="pt-[80px] w-full px-4 bg-gray-50 md:px-8 h-full">
+    <div className="pt-[80px] w-full px-1 md:px-4 lg:px-8 bg-gray-50  h-full">
       {loading ? (
         <div className="flex justify-center items-center h-full">
           <div className="loader"></div> {/* Loading spinner */}
