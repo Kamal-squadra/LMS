@@ -8,8 +8,6 @@ import DocumentContentPage from "./Pages/ContentPages/DocumentContentPage";
 import QuizContentPage from "./Pages/ContentPages/QuizContentPage";
 import PPTContentPage from "./Pages/ContentPages/PPTContentPage";
 import Sidebar from "./Components/Sidebar";
-
-import cross from "./icons/close.svg";  
 import hamburger from "./icons/menu-burger.svg";
 
 
@@ -51,11 +49,11 @@ const ContentLayout = ({ children }) => {
       </div>
       <button
           onClick={toggleSidebar}
-          className={`bg-blue-900 absolute z-10 top-[150px] transition-all duration-600 ${isExpanded ? "left-[350px]": "left-[32px]"} text-white w-[24px] h-[24px] ${isExpanded? "p-1 ":"p-1 mb-6"} rounded-full  border-2 border-blue-900 shadow-lg flex items-center justify-center  transition duration-300`}
+          className={`bg-blue-900 absolute z-10 top-[140px] transition-all duration-600 ${isExpanded ? "left-[350px]": "left-[38px]"} text-white w-[30px] h-[30px] ${isExpanded? "p-1 ":"p-1 mb-6"} rounded-full  border-2 border-blue-900 shadow-lg flex items-center justify-center  transition duration-300`}
         >
           <img
-            src={isExpanded ? cross : hamburger}
-            className="w-[24px] h-[24px]"
+            src={isExpanded ? hamburger : hamburger}
+            className={`w-[32px] h-[32px] ${isExpanded? "rotate-90":""}`}
             alt="Toggle Sidebar"
           />
         </button>
