@@ -85,7 +85,7 @@ export const coursesList = [
 
 export const cours = {
     title: [{ value: "Vessel Tank Inspection Safety" }],
-    authorName: "John Doe",
+    authorName: "Synergy Groups",
     status: "PUBLISHED",
     description: [{ value: "This comprehensive and critical safety training module is designed to address the real-life hazards associated with cargo tank inspections, emphasizing the importance of preventative measures to avert fatal accidents in high-risk environments. Cargo tank inspections are essential but inherently dangerous tasks, requiring a clear understanding of the risks involved and the safety protocols that must be followed. This course leverages real-world case studies, industry best practices, and expert insights to raise awareness about the wide range of potential dangers encountered during cargo tank inspections. These include hazardous atmospheres, fire and explosion risks, equipment malfunctions, human error, and inadequate safety measures. By studying the causes and consequences of past incidents, participants will learn how to recognize, mitigate, and control these hazards effectively." }],
     durationHours: 12,

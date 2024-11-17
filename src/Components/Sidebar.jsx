@@ -7,8 +7,6 @@ import quiz from "../icons/test-quiz.svg";
 import PPT from "../icons/PPT.svg";
 import back from "../icons/back.svg";
 import closeIcon from "../icons/close-icon.svg";
-import cross from "../icons/close.svg";  
-import hamburger from "../icons/menu-burger.svg";
 
 const Sidebar = ({ setIsExpanded, isExpanded }) => {
   const [expandedContent, setExpandedContent] = useState({});
@@ -52,13 +50,13 @@ const Sidebar = ({ setIsExpanded, isExpanded }) => {
     return text;
   };
 
-  const toggleSidebar = () => {
-    setIsExpanded((prev) => !prev); // Toggle expanded/collapsed sidebar
-  };
-
   return (
     <div
-      className={`transition-all duration-800 ${isExpanded ? "w-[360px]" : "w-[60px]"} pt-[80px] bg-white text-black shadow-2xl ${isExpanded ? "px-4" : "px-2"} flex flex-col h-auto`}
+      className={`transition-all  duration-800 ${
+        isExpanded ? "w-[360px]" : "w-[60px]"
+      } h-screen pt-[80px] bg-white overflow-y-auto text-black shadow-2xl ${
+        isExpanded ? "px-4" : "px-2"
+      } flex flex-col`}
     >
       {/* <button
         onClick={toggleSidebar}
@@ -70,10 +68,9 @@ const Sidebar = ({ setIsExpanded, isExpanded }) => {
           alt="Toggle Sidebar"
         />
       </button> */}
-
       <button
         onClick={handleGoBack}
-        className="flex items-center mb-4 w-[328px] text-gray-600 font-semibold hover:text-gray-900"
+        className={`flex items-center mb-[60px] ${isExpanded? "w-[328px]" : ""} text-gray-600 font-semibold hover:text-gray-900`}
       >
         <img
           src={back}
@@ -83,58 +80,7 @@ const Sidebar = ({ setIsExpanded, isExpanded }) => {
         {isExpanded && "Course Overview"}
       </button>
 
-      <div className="flex-grow">
-        {cours.trainingModules.map((module, moduleIndex) => (
-          <div key={moduleIndex} className="mb-6 overflow-hidden">
-            <h3
-              onClick={() => toggleContent(moduleIndex)}
-              className={`text-[18px] w-[328px] font-semibold text-gray-800 cursor-pointer p-3 bg-gray-100 ${expandedContent[moduleIndex] ? "rounded-t-lg" : "rounded-lg"} hover:bg-gray-200 transition duration-300 flex items-center justify-between`}
-            >
-              <span>
-                {isExpanded
-                  ? truncateText(module.title[0]?.value || "Untitled Module", 29)
-                  : `${moduleIndex + 1}.`}
-              </span>
-              <img
-                src={closeIcon}
-                alt="Toggle"
-                className={`h-[20px] w-[20px] transform transition duration-800 ${expandedContent[moduleIndex] ? "rotate-180" : ""}`}
-              />
-            </h3>
-
-            {expandedContent[moduleIndex] && (
-              <div className="bg-gray-100 rounded-b-lg">
-                <ul>
-                  {module.trainingModuleContents.map((content, contentIndex) => (
-                    <li
-                      key={contentIndex}
-                      className={`flex items-center cursor-pointer w-[328px]  ${isExpanded? "": "p-[5px]"} ${contentIndex === module?.trainingModuleContents?.length - 1 ? "rounded-b-lg" : ""} bg-gray-100 transition duration-200 ${isActive(content.id, content.type) ? "bg-gray-200" : ""}`}
-                    >
-                      <Link to={`/${content.type}/${content.id}`} className={`flex p-2 items-center w-full`}>
-                        <span className="flex-shrink-0 mr-2">
-                          {getContentIcon(content.type, isExpanded)} {/* Pass `isExpanded` to get different icon sizes */}
-                        </span>
-                        {isExpanded && (
-                          <div className="px-2">
-                            <span className="text-sm text-gray-700">
-                              {truncateText(content.title[0]?.value || "Untitled Content", 35)}
-                            </span>
-                            <p className="text-[12px] text-gray-900">{content.duration} minutes</p>
-                          </div>
-                        )}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
-
-      {/* Position the toggle button at the bottom */}
-      <div className="mt-auto mb-4 flex justify-center">
-        <button
+      {/* <button
           onClick={toggleSidebar}
           className={`bg-blue-900 text-white w-[32px] h-[32px] ${isExpanded? "p-1 ":"p-1 mb-6"} rounded-full  border-2 border-blue-900 shadow-lg flex items-center justify-center hover:bg-blue-800 transition duration-300`}
         >
@@ -143,8 +89,87 @@ const Sidebar = ({ setIsExpanded, isExpanded }) => {
             className="w-[24px] h-[24px]"
             alt="Toggle Sidebar"
           />
-        </button>
+        </button> */}
+      <div className="flex-grow">
+        {cours.trainingModules.map((module, moduleIndex) => (
+          <div key={moduleIndex} className="mb-6 overflow-hidden">
+            <h3
+              onClick={() => toggleContent(moduleIndex)}
+              className={`text-[18px] ${isExpanded? "w-[328px]" : "" } font-semibold text-gray-800 cursor-pointer p-3 bg-gray-100 ${
+                expandedContent[moduleIndex] ? "rounded-t-lg" : "rounded-lg"
+              } hover:bg-gray-200 transition duration-300 flex items-center justify-between`}
+            >
+              <span>
+                {isExpanded
+                  ? truncateText(
+                      module.title[0]?.value || "Untitled Module",
+                      29
+                    )
+                  : `${moduleIndex + 1}.`}
+              </span>
+              <img
+                src={closeIcon}
+                alt="Toggle"
+                className={`h-[20px] w-[20px] ${isExpanded? "" : "hidden" } transform transition duration-800 ${
+                  expandedContent[moduleIndex] ? "rotate-180" : ""
+                }`}
+              />
+            </h3>
+
+            {expandedContent[moduleIndex] && (
+              <div className="bg-gray-100 rounded-b-lg">
+                <ul>
+                  {module.trainingModuleContents.map(
+                    (content, contentIndex) => (
+                      <li
+                        key={contentIndex}
+                        className={`flex items-center cursor-pointer   ${
+                          isExpanded ? "w-[328px]" : "p-[5px] "
+                        } ${
+                          contentIndex ===
+                          module?.trainingModuleContents?.length - 1
+                            ? "rounded-b-lg"
+                            : ""
+                        } bg-gray-100 transition duration-200 ${
+                          isActive(content.id, content.type)
+                            ? "bg-gray-200"
+                            : ""
+                        }`}
+                      >
+                        <Link
+                          to={`/${content.type}/${content.id}`}
+                          className={`flex p-2 items-center w-full`}
+                        >
+                          <span className="flex-shrink-0 mr-2">
+                            {getContentIcon(content.type, isExpanded)}{" "}
+                            {/* Pass `isExpanded` to get different icon sizes */}
+                          </span>
+                          {isExpanded && (
+                            <div className="px-2">
+                              <span className="text-sm text-gray-700">
+                                {truncateText(
+                                  content.title[0]?.value || "Untitled Content",
+                                  35
+                                )}
+                              </span>
+                              <p className="text-[12px] text-gray-900">
+                                {content.duration} minutes
+                              </p>
+                            </div>
+                          )}
+                        </Link>
+                      </li>
+                    )
+                  )}
+                </ul>
+              </div>
+            )}
+          </div>
+        ))}
       </div>
+
+      {/* Position the toggle button at the bottom */}
+      <div className="mt-auto mb-4 flex justify-center"></div>
     </div>
   );
 };

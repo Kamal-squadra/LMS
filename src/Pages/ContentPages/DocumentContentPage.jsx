@@ -24,7 +24,7 @@ const DocumentContentPage = () => {
   };
 
   return (
-    <div className="mt-[60px] w-full">
+    <div className="w-full">
       {documentContent ? (
         <div className="h-full">
           <iframe

@@ -162,7 +162,7 @@ const QuizContentPage = () => {
   };
 
   return (
-    <div className="pt-[80px] w-full px-4 md:px-8 bg-gray-50 h-full">
+    <div className="w-full px-4 md:px-8 bg-gray-50 h-full">
       {quizContent ? (
         <div>
           {quizCompleted ? (

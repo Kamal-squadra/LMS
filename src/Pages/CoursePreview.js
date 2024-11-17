@@ -88,8 +88,8 @@ const CoursePreview = () => {
             {course.title[0].value}
           </h2>
           <div>
-            <span className="mt-2 inline-flex bg-white text-black font-semibold py-1 px-2 rounded">
-              {course.status}
+            <span  onClick={()=>handleContentClick("1fhOei_1T-Vo15tXQM5geVzomM4dl78DI", "video")} className="mt-2 inline-flex bg-white text-black font-semibold py-1 px-2 rounded">
+              START COURSE
             </span>
           </div>
           <div className="flex space-x-4 mt-2 flex-wrap">
@@ -97,12 +97,12 @@ const CoursePreview = () => {
               Author Name:{" "}
               <p className="font-thin pl-1"> {course.authorName}</p>
             </span>
-            <span className="text flex items-center">
+            {/* <span className="text flex items-center">
               Last Modified:{" "}
               <p className="font-thin pl-1">
                 {lastModifiedDate.toLocaleDateString()}
               </p>
-            </span>
+            </span> */}
           </div>
         </div>
       </div>
