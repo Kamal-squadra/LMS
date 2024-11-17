@@ -31,11 +31,7 @@
         "type": "true_false",
         "answer": "True"
       },
-      {
-        "question": "In this incident, none of the deck crew exercised Stop Work Authority despite noticing that a __________ was not issued before entering the enclosed space.",
-        "type": "fill_in_the_blank",
-        "answer": "permit"
-      },
+      
       {
         "question": "Which of the following actions demonstrates a failure in Daily Work Planning according to Chapter 5C of the Health and Safety Manual?",
         "type": "mcq",

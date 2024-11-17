@@ -31,11 +31,7 @@
       "type": "true_false",
       "answer": "True"
     },
-    {
-      "question": "The chief officer fell approximately ______ meters to the tank bottom while attempting to exit the 2 Starboard cargo oil tank.",
-      "type": "fill_in_the_blank",
-      "answer": "18"
-    },
+    
     {
       "question": "What equipment did the 3rd officer drop during the rescue attempt in the tank?",
       "type": "mcq",

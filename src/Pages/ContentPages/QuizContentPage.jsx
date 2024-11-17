@@ -28,7 +28,6 @@ const QuizContentPage = () => {
         }
       } catch (error) {
         console.log(error.message);  // Handle errors (e.g., 404, network issues)
-      } finally {
       }
     };
 
@@ -57,18 +56,29 @@ const QuizContentPage = () => {
     if (quizContent) {
       const currentQuestion = quizContent.questions[currentQuestionIndex];
       const selectedAnswer = userAnswers[currentQuestionIndex];
-
+      
       // Check if the answer is correct
-      const isCorrect = selectedAnswer === currentQuestion.answer;
+      let isCorrect = false;
+  
+      if (currentQuestion.type === "true_false") {
+        // For True/False, "A" is True, and "B" is False
+        isCorrect = (selectedAnswer === "A" && currentQuestion.answer === "True") ||
+                    (selectedAnswer === "B" && currentQuestion.answer === "False");
+      } else {
+        // For other question types (MCQ, fill-in-the-blank)
+        isCorrect = selectedAnswer === currentQuestion.answer;
+      }
+  
       const updatedFeedback = [...feedback];
       updatedFeedback[currentQuestionIndex] = {
         isCorrect,
         correctAnswer: currentQuestion.answer,
       };
-
+  
       setFeedback(updatedFeedback);
     }
   };
+  
 
   const renderFeedback = (questionIndex) => {
     if (feedback[questionIndex]) {
@@ -125,12 +135,44 @@ const QuizContentPage = () => {
     }
   };
 
+  const renderAllQuestions = () => {
+    return quizContent.questions.map((question, index) => {
+      const selectedAnswer = userAnswers[index];
+      const correctAnswer = feedback[index]?.correctAnswer;
+      const isCorrect = feedback[index]?.isCorrect;
+
+      const borderColor = isCorrect
+        ? "border-green-500 bg-green-100"
+        : "border-red-500 bg-red-100";
+
+      return (
+        <div key={index} className={`mb-4 p-4 border ${borderColor} rounded-md`}>
+          <h3 className="font-bold">{question.question}</h3>
+          <div className="mt-2">
+            <span className="font-semibold">Your Answer: </span>
+            {selectedAnswer || "No answer"}
+          </div>
+          <div className="mt-1">
+            <span className="font-semibold">Correct Answer: </span>
+            {correctAnswer}
+          </div>
+        </div>
+      );
+    });
+  };
+
   return (
-    <div className="pt-[80px] px-4 md:px-8 bg-gray-50 h-full">
+    <div className="pt-[80px] w-full px-4 md:px-8 bg-gray-50 h-full">
       {quizContent ? (
         <div>
           {quizCompleted ? (
-            renderCompletionMessage() // Show the completion message if quiz is finished
+            <div>
+              {renderCompletionMessage()} {/* Show the completion message */}
+              <div className="mt-8">
+                <h2 className="text-xl font-semibold mb-4">Your Answers</h2>
+                {renderAllQuestions()} {/* Render all questions with answers */}
+              </div>
+            </div>
           ) : (
             <div>
               <h2 className="text-l font-semibold mb-4">
@@ -146,7 +188,7 @@ const QuizContentPage = () => {
                   <button
                     onClick={handlePreviousQuestion}
                     disabled={currentQuestionIndex === 0}
-                    className="px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600 disabled:bg-gray-300"
+                    className="px-4 py-2 text-white bg-blue-900 rounded-md hover:bg-blue-800 disabled:bg-gray-300"
                   >
                     Previous
                   </button>
@@ -157,7 +199,7 @@ const QuizContentPage = () => {
                       currentQuestionIndex === quizContent.questions.length - 1 ||
                       feedback[currentQuestionIndex] === null // Disable Next until the answer is submitted
                     }
-                    className="px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600 disabled:bg-gray-300"
+                    className="px-4 py-2 text-white bg-blue-900 rounded-md hover:bg-blue-800 disabled:bg-gray-300"
                   >
                     Next
                   </button>
@@ -220,6 +262,7 @@ const QuizContentPage = () => {
                                 : ""
                             }
                           `}
+
                             onClick={() => handleAnswerSelection(alphabetLabel)}
                             disabled={feedback[currentQuestionIndex] !== null} // Disable selection after submission
                           >
@@ -234,72 +277,68 @@ const QuizContentPage = () => {
                   </ul>
                 )}
 
-                {/* Render True/False questions */}
-                {quizContent.questions[currentQuestionIndex].type ===
-                  "truefalse" && (
+                {/* Render True/False questions as A and B (True is A, False is B) */}
+                {quizContent.questions[currentQuestionIndex].type === "true_false" && (
                   <ul className="space-y-4 pt-4">
-                    {quizContent.questions[currentQuestionIndex].options.map(
-                      (option, index) => {
-                        const alphabetLabel = String.fromCharCode(65 + index); // A for True, B for False
-                        const isSelected =
-                          userAnswers[currentQuestionIndex] === alphabetLabel;
-                        const isCorrect =
-                          feedback[currentQuestionIndex] &&
-                          feedback[currentQuestionIndex].isCorrect &&
-                          userAnswers[currentQuestionIndex] === alphabetLabel;
-                        const isIncorrect =
-                          feedback[currentQuestionIndex] &&
-                          !feedback[currentQuestionIndex].isCorrect &&
-                          userAnswers[currentQuestionIndex] === alphabetLabel;
-                        const correctAnswer =
-                          feedback[currentQuestionIndex] &&
-                          !feedback[currentQuestionIndex].isCorrect &&
-                          feedback[currentQuestionIndex].correctAnswer ===
-                            alphabetLabel;
+                    {["True", "False"].map((option, index) => {
+                      const alphabetLabel = index === 0 ? "A" : "B"; // True = A, False = B
+                      const isSelected =
+                        userAnswers[currentQuestionIndex] === alphabetLabel;
+                      const isCorrect =
+                        feedback[currentQuestionIndex] &&
+                        feedback[currentQuestionIndex].isCorrect &&
+                        userAnswers[currentQuestionIndex] === alphabetLabel;
+                      const isIncorrect =
+                        feedback[currentQuestionIndex] &&
+                        !feedback[currentQuestionIndex].isCorrect &&
+                        userAnswers[currentQuestionIndex] === alphabetLabel;
+                      const correctAnswer =
+                        feedback[currentQuestionIndex] &&
+                        !feedback[currentQuestionIndex].isCorrect &&
+                        feedback[currentQuestionIndex].correctAnswer ===
+                          alphabetLabel;
 
-                        return (
-                          <li
-                            key={index}
-                            className={`flex items-center space-x-4 p-3 border border-gray-200 rounded-md cursor-pointer
-                            ${
-                              isSelected &&
-                              feedback[currentQuestionIndex] === null
-                                ? "bg-blue-100 border-blue-500 text-blue-600"
-                                : ""
-                            }
-                            ${
-                              isCorrect
-                                ? "bg-green-100 border-green-500 text-green-600"
-                                : ""
-                            }
-                            ${
-                              isIncorrect
-                                ? "bg-red-100 border-red-500 text-red-600"
-                                : ""
-                            }
-                            ${
-                              correctAnswer && !isSelected
-                                ? "bg-green-100 border-green-500 text-green-600"
-                                : ""
-                            }
-                          `}
-                            onClick={() => handleAnswerSelection(alphabetLabel)}
-                            disabled={feedback[currentQuestionIndex] !== null} // Disable selection after submission
-                          >
-                            <span className="w-6 h-6 flex items-center justify-center border-gray-300 bg-gray-200 rounded text-center font-medium">
-                              {alphabetLabel}
-                            </span>
-                            <span className="ml-2">{option.value}</span>
-                          </li>
-                        );
-                      }
-                    )}
+                      return (
+                        <li
+                          key={alphabetLabel}
+                          className={`flex items-center space-x-4 p-3 border border-gray-200 rounded-md cursor-pointer
+                          ${
+                            isSelected &&
+                            feedback[currentQuestionIndex] === null
+                              ? "bg-blue-100 border-blue-500 text-blue-600"
+                              : ""
+                          }
+                          ${
+                            isCorrect
+                              ? "bg-green-100 border-green-500 text-green-600"
+                              : ""
+                          }
+                          ${
+                            isIncorrect
+                              ? "bg-red-100 border-red-500 text-red-600"
+                              : ""
+                          }
+                          ${
+                            correctAnswer && !isSelected
+                              ? "bg-green-100 border-green-500 text-green-600"
+                              : ""
+                          }
+                        `}
+                          onClick={() => handleAnswerSelection(alphabetLabel)}
+                          disabled={feedback[currentQuestionIndex] !== null} // Disable selection after submission
+                        >
+                          <span className="w-6 h-6 flex items-center justify-center border-gray-300 bg-gray-200 rounded text-center font-medium">
+                            {alphabetLabel}
+                          </span>
+                          <span className="ml-2">{option}</span>
+                        </li>
+                      );
+                    })}
                   </ul>
                 )}
 
                 {/* Render Fill in the Blank questions */}
-                {quizContent.questions[currentQuestionIndex].type ===
-                  "fillinblank" && (
+                {quizContent.questions[currentQuestionIndex].type === "fillinblank" && (
                   <div className="pt-4">
                     <input
                       type="text"
@@ -318,7 +357,7 @@ const QuizContentPage = () => {
                 {feedback[currentQuestionIndex] === null && (
                   <button
                     onClick={handleSubmitAnswer}
-                    className="px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600"
+                    className="px-4 py-2 text-white bg-blue-900 rounded-md hover:bg-blue-600"
                   >
                     Submit Answer
                   </button>

@@ -31,11 +31,7 @@
         "type": "true_false",
         "answer": "False"
       },
-      {
-        "question": "During the tank entry, the required rescue equipment such as SCBA sets, EEBD, and resuscitator were not kept near the tank entrance, instead, they had to be retrieved from storage after the alarm sounded. This demonstrates a lack of __________ in emergency preparedness.",
-        "type": "fill_in_the_blank",
-        "answer": "safety preparedness"
-      },
+     
       {
         "question": "What procedural violation occurred when the Master and Chief Officer entered the 1 Port and 2 Starboard cargo oil tanks together?",
         "type": "mcq",
@@ -54,11 +50,6 @@
           }
         ],
         "answer": "D"
-      },
-      {
-        "question": "During the incident, the Chief Officer was wearing full PPE, including a safety helmet, which would have minimized head injuries during the fall.",
-        "type": "true_false",
-        "answer": "False"
       }
     ]
   }
