@@ -7,12 +7,11 @@ import quiz from "../icons/assignment-icon.svg";
 import PPT from "../icons/PPT.svg";
 import back from "../icons/back.svg";
 import closeIcon from "../icons/close-icon.svg";
-import cross from "../icons/close.svg"  
+import cross from "../icons/close.svg";  
 import hamburger from "../icons/menu-burger.svg";
 
-const Sidebar = ({setIsExpanded, isExpanded}) => {
+const Sidebar = ({ setIsExpanded, isExpanded }) => {
   const [expandedContent, setExpandedContent] = useState({});
- // Track sidebar state
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -61,30 +60,41 @@ const Sidebar = ({setIsExpanded, isExpanded}) => {
     <div
       className={`transition-all duration-800 ${
         isExpanded ? "w-[360px]" : "w-[80px]"
-      } mt-[60px] bg-white text-black p-4 shadow-2xl`}
+      } mt-[60px] bg-white text-black shadow-2xl ${
+        isExpanded ? "px-4" : "px-2" // Apply smaller padding when collapsed
+      }`}
     >
       <button
         onClick={toggleSidebar}
-        className={`flex w-full ${isExpanded ? "justify-end" : "justify-start"} ml-3 text-gray-600 w-[328px] font-semibold mt-4 mb-4 hover:text-gray-900`}
+        className={`flex w-full ${
+          isExpanded ? "justify-end" : "justify-start"
+        } ml-3 text-gray-600 w-[328px] font-semibold mt-4 mb-4 hover:text-gray-900`}
       >
-        <img src={isExpanded ? cross: hamburger} className="w-[24px] h-[24px] mr-2" alt="" />
-      
+        <img
+          src={isExpanded ? cross : hamburger}
+          className="w-[24px] h-[24px] mr-2"
+          alt="Toggle Sidebar"
+        />
       </button>
       <button
         onClick={handleGoBack}
         className="flex items-center mb-4 w-[328px] text-gray-600 font-semibold hover:text-gray-900"
       >
-        <img src={back} className={`${isExpanded ? "": "ml-3 w-[24px] h-[24px]" }`} alt="back" />
+        <img
+          src={back}
+          className={`${isExpanded ? "" : "ml-3 w-[16px] h-[16px]"}`}
+          alt="Back"
+        />
         {isExpanded && "Course Overview"}
       </button>
 
-      {/* LESSONS Section */}
-
-      <p className={`text-[#737373] pb-4 font-semibold border-b mb-4 ${isExpanded ? "":"text-white"}`}>
+      <p
+        className={`text-[#737373] pb-4 font-semibold border-b mb-4 ${
+          isExpanded ? "" : "text-white"
+        }`}
+      >
         {isExpanded ? "LESSONS" : "-"}
       </p>
-
-      {/* Collapse/Expand Button */}
 
       {cours.trainingModules.map((module, moduleIndex) => (
         <div key={moduleIndex} className="mb-6 overflow-hidden">
@@ -115,8 +125,7 @@ const Sidebar = ({setIsExpanded, isExpanded}) => {
                   <li
                     key={contentIndex}
                     className={`flex items-center cursor-pointer w-[328px] ${
-                      contentIndex ===
-                      module?.trainingModuleContents?.length - 1
+                      contentIndex === module?.trainingModuleContents?.length - 1
                         ? "rounded-b-lg"
                         : ""
                     } bg-gray-100 transition duration-200 ${
@@ -128,15 +137,12 @@ const Sidebar = ({setIsExpanded, isExpanded}) => {
                       className="flex p-2 items-center w-full"
                     >
                       <span className="flex-shrink-0 mr-2">
-                        {getContentIcon(content.type)}
+                        {getContentIcon(content.type, isExpanded)} {/* Pass `isExpanded` to get different icon sizes */}
                       </span>
                       {isExpanded && (
                         <div className="px-2">
                           <span className="text-sm text-gray-700">
-                            {truncateText(
-                              content.title[0]?.value || "Untitled Content",
-                              35
-                            )}
+                            {truncateText(content.title[0]?.value || "Untitled Content", 35)}
                           </span>
                           <p className="text-[12px] text-gray-900">
                             {content.duration} minutes
@@ -155,16 +161,18 @@ const Sidebar = ({setIsExpanded, isExpanded}) => {
   );
 };
 
-const getContentIcon = (type) => {
+const getContentIcon = (type, isExpanded) => {
+  const iconSize = isExpanded ? "h-[32px] w-[32px]" : "h-[16px] w-[16px]"; // Conditionally set icon size
+
   switch (type) {
     case "video":
-      return <img src={vid} alt="Video" className="h-[32px] w-[32px]" />;
+      return <img src={vid} alt="Video" className={iconSize} />;
     case "document":
-      return <img src={doc} alt="Document" className="h-[32px] w-[32px]" />;
+      return <img src={doc} alt="Document" className={iconSize} />;
     case "quiz":
-      return <img src={quiz} alt="Quiz" className="h-[32px] w-[32px]" />;
+      return <img src={quiz} alt="Quiz" className={iconSize} />;
     case "PPT":
-      return <img src={PPT} alt="PPT" className="h-[32px] w-[32px]" />;
+      return <img src={PPT} alt="PPT" className={iconSize} />;
     default:
       return null;
   }
