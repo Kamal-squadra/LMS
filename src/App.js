@@ -49,7 +49,7 @@ const ContentLayout = ({ children }) => {
       </div>
       <button
           onClick={toggleSidebar}
-          className={`bg-blue-900 absolute z-10 top-[140px] transition-all duration-600 ${isExpanded ? "left-[350px]": "left-[38px]"} text-white w-[30px] h-[30px] ${isExpanded? "p-1 ":"p-1 mb-6"} rounded-full  border-2 border-blue-900 shadow-lg flex items-center justify-center  transition duration-300`}
+          className={`bg-blue-900 absolute z-10 top-[140px] transition-all duration-600 ${isExpanded ? "left-[350px]": "left-[16px]"} text-white w-[30px] h-[30px] ${isExpanded? "p-1 ":"p-1 mb-6"} rounded-full  border-2 border-blue-900 shadow-lg flex items-center justify-center  transition duration-300`}
         >
           <img
             src={isExpanded ? hamburger : hamburger}
