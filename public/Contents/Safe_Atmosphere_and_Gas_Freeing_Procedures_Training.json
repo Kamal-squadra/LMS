@@ -32,11 +32,6 @@
         "answer": "False"
       },
       {
-        "question": "During the incident, the oxygen concentration inside the 2 Starboard cargo oil tank was around ______%, which was significantly lower than the safe level of 20.9%.",
-        "type": "fill_in_the_blank",
-        "answer": "15"
-      },
-      {
         "question": "What equipment did the Chief Officer use on the day of the incident to check the atmosphere in the cargo tanks?",
         "type": "mcq",
         "options": [
