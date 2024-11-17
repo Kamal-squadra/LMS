@@ -57,7 +57,7 @@ const VideoContentPage = () => {
           <p>{error}</p>
         </div>
       ) : videoContent ? (
-        <div className={`md:h-[600px] lg:h-[750px] h-[500px]`}>
+        <div className={``}>
           {/* Lesson Number */}
           <div className="text-l font-semibold mb-4">
             Video: {videoContent.title[0]?.value || "N/A"}
@@ -80,7 +80,7 @@ const VideoContentPage = () => {
 
             <iframe
               src={`https://drive.google.com/file/d/${videoContent.id}/preview`}
-             className="w-full h-full mt-4 rounded-lg"
+             className="w-full h-full mt-4 rounded-lg md:h-[600px] lg:h-[750px] h-[500px]"
             ></iframe>
           </div>
 

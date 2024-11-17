@@ -46,7 +46,7 @@ const ContentLayout = ({ children }) => {
   return (
     <div className="flex">
       {showSidebar && <Sidebar isExpanded={isExpanded} setIsExpanded={setIsExpanded} activePath={location.pathname} />}
-      <div className={`flex-1 h-full w-full overflow-y-auto ${isExpanded ? "hidden" : ""} sm:contents bg-gray-100 mt-[80px]`}>
+      <div className={`flex-1 h-full w-full overflow-y-auto ${isExpanded ? "hidden" : ""} sm:contents bg-gray-50 mt-[80px]`}>
         {children}
       </div>
       <button
