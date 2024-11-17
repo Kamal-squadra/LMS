@@ -78,7 +78,6 @@ const QuizContentPage = () => {
       setFeedback(updatedFeedback);
     }
   };
-  
 
   const renderFeedback = (questionIndex) => {
     if (feedback[questionIndex]) {
@@ -336,32 +335,17 @@ const QuizContentPage = () => {
                     })}
                   </ul>
                 )}
-
-                {/* Render Fill in the Blank questions */}
-                {quizContent.questions[currentQuestionIndex].type === "fillinblank" && (
-                  <div className="pt-4">
-                    <input
-                      type="text"
-                      value={userAnswers[currentQuestionIndex] || ""}
-                      onChange={(e) => handleAnswerSelection(e.target.value)}
-                      className="p-2 border border-gray-300 rounded-md"
-                      disabled={feedback[currentQuestionIndex] !== null} // Disable input after submission
-                    />
-                    {renderFeedback(currentQuestionIndex)}
-                  </div>
-                )}
               </div>
 
               {/* Submit Answer button */}
               <div className="pt-4">
-                {feedback[currentQuestionIndex] === null && (
-                  <button
-                    onClick={handleSubmitAnswer}
-                    className="px-4 py-2 text-white bg-blue-900 rounded-md hover:bg-blue-600"
-                  >
-                    Submit Answer
-                  </button>
-                )}
+                <button
+                  onClick={handleSubmitAnswer}
+                  disabled={userAnswers[currentQuestionIndex] === null} // Disable until an answer is selected
+                  className={`px-4 py-2 text-white ${userAnswers[currentQuestionIndex] === null ? "bg-gray-300": "bg-blue-900"} rounded-md hover:bg-blue-600`}
+                >
+                  Submit Answer
+                </button>
               </div>
 
               {/* Finish Quiz button */}
@@ -386,3 +370,4 @@ const QuizContentPage = () => {
 };
 
 export default QuizContentPage;
+
