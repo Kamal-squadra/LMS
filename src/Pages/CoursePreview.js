@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import videoIcon from "../icons/video-icon.svg";
 import documentIcon from "../icons/doc-icon.svg";
-import assessmentIcon from "../icons/assignment-icon.svg";
+import assessmentIcon from "../icons/test-quiz.svg";
 import openIcon from "../icons/open-icon.svg";
 import closeIcon from "../icons/close-icon.svg";
 import clockIcon from "../icons/clock-icon.svg";

@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { cours } from "../DummyData/CoursesDummyData";
 import vid from "../icons/video-icon.svg";
 import doc from "../icons/doc-icon.svg";
-import quiz from "../icons/assignment-icon.svg";
+import quiz from "../icons/test-quiz.svg";
 import PPT from "../icons/PPT.svg";
 import back from "../icons/back.svg";
 import closeIcon from "../icons/close-icon.svg";

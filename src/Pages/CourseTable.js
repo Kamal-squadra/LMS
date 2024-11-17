@@ -55,12 +55,12 @@ const CourseTable = () => {
         <thead>
           <tr className=" h-[50px]">
             <th className="py-2 px-4 text-start">Name</th>
-            <th
+            {/* <th
               className="py-2 px-4 cursor-pointer text-start w-[200px]"
               onClick={handleSort}
             >
               Last Modified {sortDirection === "asc" ? "↑" : "↓"}
-            </th>
+            </th> */}
           </tr>
         </thead>
       </table>
@@ -117,11 +117,11 @@ const CourseTable = () => {
                         </div>
                       </div>
                     </td>
-                    <td className="p-4 border-0 w-[200px]">
+                    {/* <td className="p-4 border-0 w-[200px]">
                       <span className="text-gray-600 text-[12px]">
                         {new Date(course.createdAt).toLocaleDateString()}
                       </span>
-                    </td>
+                    </td> */}
                     
                   </tr>
                 );
