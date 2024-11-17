@@ -68,7 +68,7 @@ const Sidebar = ({ setIsExpanded, isExpanded }) => {
         onClick={toggleSidebar}
         className={`flex w-full ${
           isExpanded ? "justify-end" : "justify-start"
-        } ml-3 text-gray-600 w-[328px] font-semibold mt-4 mb-4 hover:text-gray-900`}
+        } ml-1 text-gray-600 w-[328px] font-semibold mt-4 mb-4 hover:text-gray-900`}
       >
         <img
           src={isExpanded ? cross : hamburger}
