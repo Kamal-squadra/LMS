@@ -59,7 +59,7 @@ const Sidebar = ({ setIsExpanded, isExpanded }) => {
   return (
     <div
       className={`transition-all duration-800 ${
-        isExpanded ? "w-[360px]" : "w-[80px]"
+        isExpanded ? "w-[360px]" : "w-[50px]"
       } mt-[60px] bg-white text-black shadow-2xl ${
         isExpanded ? "px-4" : "px-2" // Apply smaller padding when collapsed
       }`}
