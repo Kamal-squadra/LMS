@@ -58,7 +58,7 @@ const Sidebar = ({ setIsExpanded, isExpanded }) => {
 
   return (
     <div
-      className={`transition-all duration-800 ${isExpanded ? "w-[360px]" : "w-[60px]"} pt-[80px] bg-white text-black shadow-2xl ${isExpanded ? "px-4" : "px-2"} flex flex-col h-full`}
+      className={`transition-all duration-800 ${isExpanded ? "w-[360px]" : "w-[60px]"} pt-[80px] bg-white text-black shadow-2xl ${isExpanded ? "px-4" : "px-2"} flex flex-col h-auto`}
     >
       {/* <button
         onClick={toggleSidebar}
