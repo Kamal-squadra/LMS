@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import videoIcon from "../icons/video-icon.svg";
 import documentIcon from "../icons/doc-icon.svg";
-import assessmentIcon from "../icons/test-quiz.svg";
+import assessmentIcon from "../icons/assignment-icon.svg";
 import openIcon from "../icons/open-icon.svg";
 import closeIcon from "../icons/close-icon.svg";
 import clockIcon from "../icons/clock-icon.svg";
@@ -18,6 +18,7 @@ const CoursePreview = () => {
   const [expandedContent, setExpandedContent] = useState({});
   const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
 
+  
   const toggleContent = (index) => {
     setExpandedContent((prev) => ({
       ...prev,
@@ -88,8 +89,8 @@ const CoursePreview = () => {
             {course.title[0].value}
           </h2>
           <div>
-            <span  onClick={()=>handleContentClick("1fhOei_1T-Vo15tXQM5geVzomM4dl78DI", "video")} className="mt-2 inline-flex bg-white text-black font-semibold py-1 px-2 rounded">
-              START COURSE
+            <span className="mt-2 inline-flex bg-white text-black font-semibold py-1 px-2 rounded">
+              {course.status}
             </span>
           </div>
           <div className="flex space-x-4 mt-2 flex-wrap">
@@ -97,12 +98,12 @@ const CoursePreview = () => {
               Author Name:{" "}
               <p className="font-thin pl-1"> {course.authorName}</p>
             </span>
-            {/* <span className="text flex items-center">
+            <span className="text flex items-center">
               Last Modified:{" "}
               <p className="font-thin pl-1">
                 {lastModifiedDate.toLocaleDateString()}
               </p>
-            </span> */}
+            </span>
           </div>
         </div>
       </div>
@@ -139,10 +140,8 @@ const CoursePreview = () => {
               <div key={index} className="rounded-lg my-4">
                 <div
                   onClick={() => toggleContent(index)}
-                  className={`flex flex-col gap-[16px] items-start justify-between ${
-                    expandedContent[index] ? "rounded-t-lg" : "rounded-lg "
-                  } p-4 cursor-pointer bg-[#FAFAFA]`}
-                >
+                  className="flex flex-col gap-[16px] items-start justify-between rounded-lg p-4 cursor-pointer bg-[#FAFAFA]"
+              >
                   <div className="flex items-center justify-between w-full">
                     <h3 className="font-bold text-[16px]">
                       {index + 1 + ". " + module.title[0]?.value ||
