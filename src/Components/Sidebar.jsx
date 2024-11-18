@@ -53,8 +53,8 @@ const Sidebar = ({ setIsExpanded, isExpanded }) => {
   return (
     <div
       className={`transition-all  duration-800 ${
-        isExpanded ? "w-[360px]" : "w-[60px]"
-      } h-full pt-[80px] bg-white overflow-y-auto text-black shadow-2xl ${
+        isExpanded ? "w-[395px]" : "w-[60px]"
+      } h-full pt-[80px] bg-white text-black shadow-2xl ${
         isExpanded ? "px-4" : "px-2"
       } flex flex-col`}
     >
@@ -70,11 +70,11 @@ const Sidebar = ({ setIsExpanded, isExpanded }) => {
       </button> */}
       <button
         onClick={handleGoBack}
-        className={`flex items-center mb-[60px] ${isExpanded? "w-[328px]" : ""} text-gray-600 font-semibold hover:text-gray-900`}
+        className={`flex items-center mb-[60px] ${isExpanded? "w-[370px]" : ""} text-gray-600 font-semibold hover:text-gray-900`}
       >
         <img
           src={back}
-          className={`${isExpanded ? "" : "w-[32px]"}`}
+          className={`${isExpanded ? "w-[32px]" : "w-[32px]"}`}
           alt="Back"
         />
         {isExpanded && "Course Overview"}
@@ -95,7 +95,7 @@ const Sidebar = ({ setIsExpanded, isExpanded }) => {
           <div key={moduleIndex} className="mb-6 overflow-hidden">
             <h3
               onClick={() => toggleContent(moduleIndex)}
-              className={`text-[18px] ${isExpanded? "w-[328px]" : "" } font-semibold text-gray-800 cursor-pointer p-3 bg-gray-100 ${
+              className={`text-[18px] ${isExpanded? "w-[370px]" : "" } font-semibold text-gray-800 cursor-pointer p-3 bg-gray-100 ${
                 expandedContent[moduleIndex] ? "rounded-t-lg" : "rounded-lg"
               } hover:bg-gray-200 transition duration-300 flex items-center justify-between`}
             >
@@ -117,14 +117,16 @@ const Sidebar = ({ setIsExpanded, isExpanded }) => {
             </h3>
 
             {expandedContent[moduleIndex] && (
-              <div className="bg-gray-100 rounded-b-lg">
+              <div 
+              style={{scrollbarWidth:"none"}}
+              className="bg-gray-100 rounded-b-lg max-h-[500px] overflow-y-auto">
                 <ul>
                   {module.trainingModuleContents.map(
                     (content, contentIndex) => (
                       <li
                         key={contentIndex}
                         className={`flex items-center cursor-pointer   ${
-                          isExpanded ? "w-[328px]" : "p-[5px] "
+                          isExpanded ? "w-[395px]" : "p-[5px] "
                         } ${
                           contentIndex ===
                           module?.trainingModuleContents?.length - 1

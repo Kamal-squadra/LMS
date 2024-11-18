@@ -10,7 +10,6 @@ import PPTContentPage from "./Pages/ContentPages/PPTContentPage";
 import Sidebar from "./Components/Sidebar";
 import hamburger from "./icons/menu-burger.svg";
 
-
 const ContentLayout = ({ children }) => {
   const location = useLocation();
   const [isExpanded, setIsExpanded] = useState(true);
@@ -40,23 +39,26 @@ const ContentLayout = ({ children }) => {
     setIsExpanded((prev) => !prev); // Toggle expanded/collapsed sidebar
   };
 
-
   return (
     <div className="flex h-full">
       {showSidebar && <Sidebar isExpanded={isExpanded} setIsExpanded={setIsExpanded} activePath={location.pathname} />}
+      
       <div className={`flex-1 h-full w-full overflow-y-auto ${isExpanded ? "hidden" : ""} sm:contents bg-gray-50 pt-[80px]`}>
         {children}
       </div>
+
+      {/* Hamburger button - Only visible on small screens */}
       <button
-          onClick={toggleSidebar}
-          className={`bg-blue-900 absolute z-10 top-[140px] transition-all duration-600 ${isExpanded ? "left-[350px]": "left-[16px]"} text-white w-[30px] h-[30px] ${isExpanded? "p-1 ":"p-1 mb-6"} rounded-full  border-2 border-blue-900 shadow-lg flex items-center justify-center  transition duration-300`}
-        >
-          <img
-            src={isExpanded ? hamburger : hamburger}
-            className={`w-[32px] h-[32px] ${isExpanded? "rotate-90":""}`}
-            alt="Toggle Sidebar"
-          />
-        </button>
+        onClick={toggleSidebar}
+        className={`bg-blue-900 absolute z-8 top-[140px] transition-all duration-600 ${isExpanded ? "left-[350px]" : "left-[16px]"} text-white w-[30px] h-[30px] ${isExpanded ? "p-1" : "p-1"} rounded-full border-2 border-blue-900 shadow-lg flex items-center justify-center transition duration-300 sm:hidden`} 
+        style={{ display: screenWidth < 640 ? 'block' : 'none' }} // Hides button on large screens
+      >
+        <img
+          src={hamburger}
+          className={`w-[20px] h-[20px]  ${isExpanded ? "rotate-90" : ""}`}
+          alt="Toggle Sidebar"
+        />
+      </button>
     </div>
   );
 };
